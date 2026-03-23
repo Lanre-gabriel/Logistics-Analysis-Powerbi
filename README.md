@@ -6,8 +6,7 @@ This project analyzes logistics performance across different shipping modes (Jet
 - [Introduction](#Introduction)
 - [Project Objectives](#Project-Objectives)
 - [Data Transformation](#Data-Transformation)
-- [Data Normalization](#Data-Normalization)
-- [Data Modelling](#Data-Modelling)
+- [Data Normalization and Modelling](#Data-Normalization-and-Modelling)
 - [Analysis and Calculations using Dax](#Analysis-and-Calculation-Using-Dax)
 - [Data Visualization](#Data-Visualization)
 - [Insight](#Insight)
@@ -42,15 +41,137 @@ The objectives of this project are to;
 
 ---
 
-## Data Transformation Process
+## Data Cleaning & Transformation (Power Query)
+
+The dataset was cleaned and transformed using **Power Query** to ensure data consistency, accuracy, and readiness for analysis. Several transformation steps were applied to structure the data and create meaningful categories for better insights.
+
+---
+**1. Splitting Delivery Location**
+
+- The **Delivery Location** column was splitted using a delimiter.
+- This allowed extraction of structured fields such as **City** and **Region**.
+- It improves location-based analysis and dashboard filtering.
 
 ---
 
-## Data Normalization 
+**2. Customer Satisfaction
+Categorization**
+
+To make customer feedback more interpretable, the **Customer Satisfaction Score (CSS)** was grouped into a Likert-scale format.
+
+A custom column named **Customer Satisfaction Category** was created using conditional logic.
+
+**Categorization:**
+
+- 1 – 2 → Very Dissatisfied  
+- 3 – 4 → Dissatisfied  
+- 5 – 6 → Neutral  
+- 7 – 8 → Satisfied  
+- 9 – 10 → Very Satisfied  
+
+**Power Query Formula:**
+
+```powerquery
+if [CSS] >= 1 and [CSS] <= 2 then "Very Dissatisfied"
+else if [CSS] >= 3 and [CSS] <= 4 then "Dissatisfied"
+else if [CSS] >= 5 and [CSS] <= 6 then "Neutral"
+else if [CSS] >= 7 and [CSS] <= 8 then "Satisfied"
+else "Very Satisfied"
+```
+**3. Carrier Performance Rating Categorization**
+
+To evaluate logistics efficiency, the **Carrier Performance Rating** was transformed into grouped categories.
+
+A new column called **Carrier Performance Category** was also created using conditional logic.
+
+**Categorization:**
+
+- ≤ 2 → Low Rating  
+- = 3 → Medium Rating  
+- > 3 → High Rating  
+
+**Power Query Formula:**
+
+```powerquery
+if [Carrier Performance Rating] <= 2 then "Low Rating"
+else if [Carrier Performance Rating] = 3 then "Medium Rating"
+else "High Rating"
+```
 
 ---
 
-## Data Modelling 
+## Data Normalization & Modelling
+
+To improve data structure, reduce redundancy, and enable efficient analysis, the dataset was normalized into multiple dimension tables and a central fact table using a **star ⭐ schema approach**.
+
+**Data Normalization**
+
+The raw dataset was decomposed into 8 smaller, well-structured tables to eliminate duplication and ensure consistency across the model and 1 Centralized facts table 
+
+Each table was designed to represent a specific business entity.
+
+**Dimension Tables**
+
+The following dimension tables were created:
+
+**📦 DimShipments**
+Contains core shipment details:
+- Shipment ID  
+- Shipment Status  
+- Shipment Type  
+- Shipment Priority  
+
+ **🚚 DimShippingMode**
+Stores shipping method details:
+- Shipping Mode (Bus, Jets, Lorry, Motorbike)
+
+**👥 DimCustomer**
+Contains customer segmentation:
+- Customer Type (Business, Retail, International)  
+- Customer ID (generated using index column)
+
+
+**📍 DimLocation**
+Stores geographical data:
+- City  
+- City ID  
+
+---
+
+**💳 DimPayment**
+Captures payment information:
+- Payment Status (Paid, Pending, Overdue)  
+- Payment Status ID  
+
+**🚛 DimCarrier**
+Stores carrier details:
+- Carrier Name  
+- Carrier ID  
+
+**⭐ DimCarrierSatisfaction**
+Captures customer satisfaction categories:
+- Customer Satisfaction Category  
+- Satisfaction ID  
+
+**📊 DimCarrierPerformance**
+Captures carrier performance categories:
+- Carrier Performance Category  
+- Performance ID  
+
+**Data Modelling**
+After creating the dimension tables, relationships were established between them and the central fact table.
+
+- A **star schema** was implemented  
+- The **fact table** contains transactional shipment data  
+- Dimension tables are linked using unique IDs (keys)  
+- Relationships were created as **one-to-many (1:M)**  
+
+This data model:
+
+- Reduced data redundancy  
+- Improved query performance  
+- Enabled efficient filtering and slicing in Power BI  
+- Provided a scalable structure for future data expansion
 
 ---
 
