@@ -52,8 +52,6 @@ The dataset was cleaned and transformed using **Power Query** to ensure data con
 - This allowed extraction of structured fields such as **City** and **Region**.
 - It improves location-based analysis and dashboard filtering.
 
----
-
 **2. Customer Satisfaction
 Categorization**
 
@@ -136,8 +134,6 @@ Stores geographical data:
 - City  
 - City ID  
 
----
-
 **💳 DimPayment**
 Captures payment information:
 - Payment Status (Paid, Pending, Overdue)  
@@ -175,8 +171,112 @@ This data model:
 
 ---
 
-## Analysis and Calculation using DAX
+## Analysis & Calculations (DAX)
 
+To support the analysis, key DAX measures were created to track shipment performance, delivery efficiency, and financial metrics.
+
+**Base Measures**
+
+These foundational measures were created and reused across multiple calculations:
+
+**📦 Total Shipments**
+```DAX
+Total Shipments = COUNTROWS('Fact Logistics')
+```
+**Shipment Status KPIs**
+***Completed Shipment***
+```DAX
+Completed Shipments = 
+CALCULATE(
+    COUNTROWS('Fact Logistics'),
+    'DimShipment'[Shipment Status] = "Completed"
+)
+```
+**🚚 In-Progress Shipments**
+***(All non-completed shipments grouped together)***
+```DAX
+In Progress Shipments = 
+CALCULATE(
+    COUNTROWS('Fact Logistics'),
+    'DimShipment'[Shipment Status] IN {
+        "In Transit",
+        "Not Completed",
+        "Ready for Pickup"
+    }
+)
+```
+**Shipment Value**
+```DAX
+Shipment Value = SUM('Fact Logistics'[Shipment Value ($)])
+```
+**Performance Ratios**
+```DAX
+% Completed = 
+DIVIDE([Completed Shipments], [Total Shipments], 0)
+```
+***%Early Deliveries***
+```DAX
+% Early Shipments =
+VAR Early =
+    CALCULATE(
+        COUNTROWS('Fact Logistics'),
+        'DimShipment'[Shipment Status] = "Completed",
+        'Fact Logistics'[Delivery Date] <= 'Fact Logistics'[Estimated Delivery Date]
+    )
+RETURN
+DIVIDE(Early, [Completed Shipments], 0)
+```
+***%Late Deliveries***
+```DAX
+% Late Shipments =
+VAR Late =
+    CALCULATE(
+        COUNTROWS('Fact Logistics'),
+        'DimShipment'[Shipment Status] = "Completed",
+        'Fact Logistics'[Delivery Date] > 'Fact Logistics'[Estimated Delivery Date]
+    )
+RETURN
+DIVIDE(Late, [Completed Shipments], 0)
+```
+**Time-Based Analysis**
+***Year-Over-Year(YoY)- Completed Shipments***
+```DAX
+YoY Completed Shipments =
+VAR SPLY =
+    CALCULATE(
+        [Completed Shipments],
+        SAMEPERIODLASTYEAR('DateTable'[Date])
+    )
+VAR YoY =
+    DIVIDE([Completed Shipments], SPLY) - 1
+RETURN
+FORMAT(YoY, "0%")
+```
+***Month-over-Month - Shipment Value***
+```DAX
+MoM Shipment Value =
+VAR PM =
+    CALCULATE(
+        [Shipment Value],
+        PREVIOUSMONTH('DateTable'[Date])
+    )
+VAR MoM =
+    DIVIDE([Shipment Value], PM) - 1
+RETURN
+FORMAT(MoM, "0%")
+```
+**Payments performance**
+***% Paid Shipments***
+```Dax
+% Paid =
+VAR Paid =
+    CALCULATE(
+        [Shipment Value],
+        'DimPayment'[Payment Status] = "Paid"
+    )
+RETURN
+DIVIDE(Paid, [Shipment Value], 0)
+```
 ---
 
 ## Data Visualization (Dashboard Preview)
