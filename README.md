@@ -1,6 +1,7 @@
 # Logistics-Analysis-Powerbi
 ---
 This project analyzes logistics performance across different shipping modes (Jets, Bus, Lorry, and Motorbike), focusing on shipment completion rate, in-progress shipments, shipment value, and delivery time to uncover insights and improve operational efficiency.
+![Dashboard](Logistics_dashboard.png)
 
 ## Table of Content 
 - [Introduction](#Introduction)
@@ -51,6 +52,8 @@ The objectives of this project are to;
 ## Data Cleaning and Transformation (Power Query)
 
 The dataset was cleaned and transformed using **Power Query** to ensure data consistency, accuracy, and readiness for analysis. Several transformation steps were applied to structure the data and create meaningful categories for better insights.
+
+![Power Query](Power_Query.PNG)
 
 ---
 **1. Splitting Delivery Location**
@@ -103,8 +106,8 @@ else if [Carrier Performance Rating] = 3 then "Medium Rating"
 else "High Rating"
 ```
 
-
 [Back to Top](#-table-of-contents)
+
 ---
 
 ## Data Normalization and Modelling
@@ -116,6 +119,8 @@ To improve data structure, reduce redundancy, and enable efficient analysis, the
 The raw dataset was decomposed into 8 smaller, well-structured tables to eliminate duplication and ensure consistency across the model and 1 Centralized facts table 
 
 Each table was designed to represent a specific business entity.
+
+![Data Modelling](Data_Modelling.PNG)
 
 **Dimension Tables**
 
@@ -291,19 +296,26 @@ DIVIDE(Paid, [Shipment Value], 0)
 ```
 
 [Back to Top](#-table-of-contents)
+
 ---
 
 ## Data Visualization (Dashboard Preview)
 
+![Dashboard](Page_1.PNG)
+![Dashboard](Page_2.PNG)
+![Dashboard](Page_3.PNG)
 
-[⬆ Back to Top](#-table-of-contents)
+
+[Back to Top](#-table-of-contents)
 
 ---
 
-## Insight 
+# Insight 
  **Shipment Status Overview**
 
 This section highlights key performance metrics across shipment completion, operational efficiency, customer satisfaction, and shipment distribution.
+
+![Dashboard](Page_1.PNG)
 
 **Completed Shipments**
 
@@ -354,6 +366,8 @@ Improving efficiency, especially for high-priority deliveries and lower-performi
 **Insights Page 2: Shipment Performance by Shipping Mode**
 
 This section analyzes how different shipping modes perform across shipment volume, priority distribution, and regional activity.
+
+![Dashboard](Page_2.PNG)
 
 **✈ Jet Shipments**
 
@@ -416,13 +430,14 @@ Each shipping mode plays a distinct role within the logistics network:
 
 Optimizing how these modes are deployed across regions will be key to improving overall efficiency and scalability.
 
-## 📊 Insights: Customer Experience & Delivery Metrics
+**Insights: Customer Experience & Delivery Metrics**
 
 This section evaluates how customer type, delivery performance, shipment value, and operational factors influence overall customer satisfaction.
 
----
+![Dashboard](Page_3.PNG)
 
-### 🔹 Customer Type Insights
+
+**Customer Type Insights**
 
 - **Business customers** account for the largest share of shipments (**35.99%**), followed by:
   - **Retail** (**32.85%**)  
@@ -431,8 +446,6 @@ This section evaluates how customer type, delivery performance, shipment value, 
 **💡 Key Insight:**
 - Business clients are the **primary drivers of logistics demand**, making them a critical segment for revenue and service optimization.  
 - Maintaining high service quality for this segment is essential for long-term business growth.
-
----
 
 **Delivery Performance & Customer Satisfaction**
 
@@ -475,12 +488,14 @@ To improve customer experience, the focus should be on:
 - Prioritizing key customer segments, especially business clients  
 
 [Back to Top](#-table-of-contents)
+
 ---
 
 ## Conclusion 
 
 
 [Back to Top](#-table-of-contents)
+
 ---
 ## Recommendation
 
@@ -491,5 +506,8 @@ To improve customer experience, the focus should be on:
 
 ## About Me
 
+[Back to Top](#-table-of-contents)
+
+---
 
 [⬆ Back to Top](#-table-of-contents)
