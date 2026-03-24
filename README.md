@@ -301,6 +301,7 @@ DIVIDE(Paid, [Shipment Value], 0)
 
 ## Data Visualization (Dashboard Preview)
 
+This report is splitted into three (3) key sections :
 ![Dashboard](Page_1.PNG)
 ![Dashboard](Page_2.PNG)
 ![Dashboard](Page_3.PNG)
@@ -310,8 +311,7 @@ DIVIDE(Paid, [Shipment Value], 0)
 
 ---
 
-# Insight 
- **Shipment Status Overview**
+# Insight Page 1: Shipment Status Overview
 
 This section highlights key performance metrics across shipment completion, operational efficiency, customer satisfaction, and shipment distribution.
 
@@ -551,5 +551,3 @@ By addressing operational inefficiencies and optimizing resource allocation, the
 [Back to Top](#-table-of-contents)
 
 ---
-
-[⬆ Back to Top](#-table-of-contents)
