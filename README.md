@@ -24,6 +24,9 @@ In this project, I analyzed a logistics dataset to evaluate shipment performance
 The goal of this analysis is to provide insights into logistics operations, identify inefficiencies, and deliver actionable recommendations to optimize shipment completion rates and reduce in-progress shipments.
 Additionally, this project examines shipment value, delivery timelines, and customer satisfaction levels to help stakeholders understand performance trends and assess the impact of different delivery modes on timely deliveries.
 
+
+[Back to Top](#-table-of-contents)
+
 ---
 
 ## Project Objectives 
@@ -39,6 +42,9 @@ The objectives of this project are to;
 - Assess customer satisfaction based on shipment performance, delivery timelines, and feedback across different shipment types.
 
 - Evaluate in-progress shipments to identify bottlenecks and areas for operational improvement.
+
+
+[Back to Top](#-table-of-contents)
 
 ---
 
@@ -97,6 +103,8 @@ else if [Carrier Performance Rating] = 3 then "Medium Rating"
 else "High Rating"
 ```
 
+
+[Back to Top](#-table-of-contents)
 ---
 
 ## Data Normalization and Modelling
@@ -169,6 +177,9 @@ This data model:
 - Improved query performance  
 - Enabled efficient filtering and slicing in Power BI  
 - Provided a scalable structure for future data expansion
+
+
+[Back to Top](#-table-of-contents)
 
 ---
 
@@ -278,9 +289,14 @@ VAR Paid =
 RETURN
 DIVIDE(Paid, [Shipment Value], 0)
 ```
+
+[Back to Top](#-table-of-contents)
 ---
 
 ## Data Visualization (Dashboard Preview)
+
+
+[⬆ Back to Top](#-table-of-contents)
 
 ---
 
@@ -457,13 +473,23 @@ To improve customer experience, the focus should be on:
 - Reducing delivery delays  
 - Ensuring consistent service across regions and shipping modes  
 - Prioritizing key customer segments, especially business clients  
+
+[Back to Top](#-table-of-contents)
 ---
 
 ## Conclusion 
 
+
+[Back to Top](#-table-of-contents)
 ---
 ## Recommendation
+
+
+[Back to Top](#-table-of-contents)
 
 ---
 
 ## About Me
+
+
+[⬆ Back to Top](#-table-of-contents)
