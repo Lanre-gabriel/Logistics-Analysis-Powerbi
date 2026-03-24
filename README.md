@@ -302,6 +302,10 @@ DIVIDE(Paid, [Shipment Value], 0)
 ## Data Visualization (Dashboard Preview)
 
 This report is splitted into three (3) key sections :
+- **Shipment Status Overview**
+- **Shipment Performance by Shipping Mode**
+- **Customer Experience Metrics**
+
 ![Dashboard](Page_1.PNG)
 ![Dashboard](Page_2.PNG)
 ![Dashboard](Page_3.PNG)
