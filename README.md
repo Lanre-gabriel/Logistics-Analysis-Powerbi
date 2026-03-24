@@ -491,13 +491,55 @@ To improve customer experience, the focus should be on:
 
 ---
 
-## Conclusion 
+## Conclusion
+
+The analysis reveals that logistics operations are experiencing **steady growth**, as evidenced by the increase in completed shipments and overall shipment value.  
+
+However, this growth is accompanied by a **significant rise in in-progress shipments**, indicating potential **operational bottlenecks and capacity constraints**.
+
+**Across shipping modes:**
+- **Buses** handle the highest shipment volume, making them the backbone of operations  
+- **Motorbikes** deliver higher customer satisfaction, likely due to their efficiency in last-mile delivery  
+
+Although **average delivery time remains consistent**, delays and shipment backlog continue to negatively impact customer experience.
+
+Additionally, **Business customers contribute the largest share of shipments**, making them a critical segment for revenue and long-term growth.
+
+Overall, while performance is improving, **inefficiencies in delivery execution and shipment handling** are limiting operational effectiveness and customer satisfaction
 
 
 [Back to Top](#-table-of-contents)
 
 ---
 ## Recommendation
+
+Based on the insights derived from the analysis, the following actions are recommended:
+
+**1. Reduce Shipment Backlog**
+- Increase operational capacity or optimize workflows  
+- Streamline fulfillment processes to improve shipment completion rates  
+
+**2. Leverage High-Performing Delivery Modes**
+- Expand the use of **Motorbikes for last-mile delivery**  
+- Focus on high-density areas (Lagos) where speed and flexibility are critical  
+
+**3. Optimize Bus Operations**
+- Improve efficiency in bus logistics, as they handle the **highest shipment volume**  
+- Enhance scheduling, routing, and load management  
+
+**4. Prioritize High-Value & High-Priority Shipments**
+- Ensure faster processing for urgent and high-value deliveries  
+- Implement stricter SLA tracking for priority shipments  
+
+**5. Improve Delivery Time Consistency**
+- Monitor delays across cities and shipping modes  
+- Identify bottlenecks and standardize delivery processes  
+
+**6. Focus on Key Customer Segments**
+- Strengthen service delivery for **Business customers**, who represent the largest share of demand  
+- Develop retention strategies to maintain long-term relationships  
+
+By addressing operational inefficiencies and optimizing resource allocation, the logistics system can **scale effectively while maintaining high service quality and customer satisfaction**.
 
 
 [Back to Top](#-table-of-contents)
