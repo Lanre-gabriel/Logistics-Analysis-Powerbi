@@ -9,7 +9,7 @@ This project analyzes logistics performance across different shipping modes (Jet
 - [Data Cleaning and Transformation (Power Query)](#Data-Cleaning-Transformation-(Power-Query))
 - [Data Normalization and Modelling](#Data-Normalization-and-Modelling)
 - [Analysis and Calculations using Dax](#Analysis-and-Calculation-Using-DAX)
-- [Data Visualization](#Data-Visualization)
+- [Data Visualization Dashboard Preview](#Data-Visualization-(Dashboard-Preview))
 - [Insight](#Insight)
 - [Conclusion](#Conclusion)
 - [Recommendations](#Recommendations)
@@ -315,7 +315,8 @@ This report is splitted into three (3) key sections :
 
 ---
 
-# Insight Page 1: Shipment Status Overview
+# Insight 
+**Page 1: Shipment Status Overview**
 
 This section highlights key performance metrics across shipment completion, operational efficiency, customer satisfaction, and shipment distribution.
 
